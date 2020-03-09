@@ -8,12 +8,12 @@ from werkzeug.utils import secure_filename
 
 from tools import scrape, merge
 
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("recipy")
 
 app = Flask(__name__)
 CORS(app, expose_headers="Authorization")
+
 
 @app.route("/", methods=["POST", "GET"])
 def generate_list():
@@ -34,6 +34,7 @@ def generate_list():
     print('send response')
     return json.dumps(merged_ingredients)
 
+
 if __name__ == "__main__":
     app.secret_key = os.urandom(24)
-    app.run(debug=True, host="0.0.0.0", use_reloader=False)
+    app.run(debug=True, host='0.0.0.0', use_reloader=False)

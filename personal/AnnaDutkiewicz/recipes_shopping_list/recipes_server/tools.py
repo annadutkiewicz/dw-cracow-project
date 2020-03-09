@@ -1,5 +1,6 @@
 import przepisy_pl_scraping
 
+
 def scrape(data):
     result = []
     print('Start Scraping')
@@ -7,13 +8,13 @@ def scrape(data):
     # what site are we scraping from?
     for recipe in data:
         this_recipe = {
-            'ingredients' : [],
-            'message' : 'Nie mogłem pobrać składników potrawy',
-            'url' : recipe['url'],
-            'title' : recipe['title'],
-            'success' : False,
+            'ingredients': [],
+            'message': 'Nie mogłem pobrać składników potrawy',
+            'url': recipe['url'],
+            'title': recipe['title'],
+            'success': False,
         }
-        
+
         if 'przepisy.pl/przepis/' in this_recipe['url']:
             # scrape from przepisy.pl
             print('scrape {}'.format(this_recipe['url']))
@@ -23,6 +24,6 @@ def scrape(data):
 
     return result
 
+
 def merge(ingredients):
     return ingredients
-
